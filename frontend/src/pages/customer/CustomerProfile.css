@@ -1,0 +1,61 @@
+.profile-customer-page {
+  min-height: 100vh;
+  background: #fff7ec;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+}
+
+.profile-customer-card {
+  width: 100%;
+  max-width: 520px;
+  background: white;
+  padding: 40px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 25px 70px rgba(17, 24, 39, 0.12);
+}
+
+.profile-avatar {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff4d29, #ff8a3d);
+  display: grid;
+  place-items: center;
+  font-size: 45px;
+}
+
+.profile-customer-card h1 {
+  margin-top: 20px;
+  font-size: 34px;
+}
+
+.profile-customer-card p {
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+.profile-menu {
+  display: grid;
+  gap: 14px;
+}
+
+.profile-menu a,
+.profile-menu button {
+  text-decoration: none;
+  border: none;
+  background: #fff7ec;
+  color: #111827;
+  padding: 16px;
+  border-radius: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.profile-menu button {
+  background: #111827;
+  color: white;
+}

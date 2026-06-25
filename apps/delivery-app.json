@@ -1,0 +1,10 @@
+{
+  "appName": "CraveRun Delivery Partner",
+  "bundleId": "com.craverun.delivery",
+  "webPath": "/delivery-partner",
+  "appStartPath": "/delivery/dashboard",
+  "manifest": "/manifest-delivery.json",
+  "android": true,
+  "ios": true,
+  "description": "Delivery partner app for delivery jobs, assigned orders and delivery status."
+}

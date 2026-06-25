@@ -1,0 +1,10 @@
+{
+  "appName": "CraveRun Partner",
+  "bundleId": "com.craverun.partner",
+  "webPath": "/restaurant-partner",
+  "appStartPath": "/owner/dashboard",
+  "manifest": "/manifest-partner.json",
+  "android": true,
+  "ios": true,
+  "description": "Restaurant owner app for profile, menu, orders, payment split, commission and payout."
+}

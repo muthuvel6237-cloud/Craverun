@@ -1,0 +1,10 @@
+{
+  "appName": "CraveRun Food Delivery",
+  "bundleId": "com.craverun.customer",
+  "webPath": "/food-delivery",
+  "appStartPath": "/customer/home",
+  "manifest": "/manifest-customer.json",
+  "android": true,
+  "ios": true,
+  "description": "Customer app for food browsing, cart, checkout, payments, orders and live tracking."
+}

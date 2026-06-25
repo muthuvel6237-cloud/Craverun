@@ -1,0 +1,29 @@
+.admin-customers-page {
+  padding: 30px;
+}
+
+.admin-customers-page h1 {
+  margin-bottom: 20px;
+}
+
+.customer-table {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #ff4d29;
+  color: white;
+  padding: 15px;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}

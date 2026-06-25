@@ -1,0 +1,78 @@
+.profile-page {
+  min-height: 100vh;
+  background: #fff7ec;
+  padding: 35px;
+}
+
+.profile-card {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 35px;
+  border-radius: 30px;
+  box-shadow: 0 25px 70px rgba(17, 24, 39, 0.12);
+}
+
+.profile-card h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.profile-card p {
+  color: #6b7280;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.profile-form {
+  display: grid;
+  gap: 18px;
+}
+
+.profile-form input {
+  height: 55px;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 0 16px;
+  font-size: 15px;
+  outline: none;
+}
+
+.profile-form input:focus {
+  border-color: #ff4d00;
+}
+
+.profile-check {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.profile-save-btn,
+.holiday-btn {
+  height: 56px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #ff7a00, #ff2d00);
+  color: white;
+  font-weight: 900;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.holiday-box {
+  margin-top: 30px;
+  background: #fff7ec;
+  padding: 25px;
+  border-radius: 24px;
+}
+
+.holiday-box h2 {
+  margin-bottom: 10px;
+}
+
+.holiday-box p {
+  margin-bottom: 18px;
+  font-weight: 800;
+}

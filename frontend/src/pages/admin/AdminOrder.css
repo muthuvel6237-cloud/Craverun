@@ -1,0 +1,53 @@
+.admin-orders-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 35px;
+}
+
+.admin-orders-page h1 {
+  margin-bottom: 25px;
+}
+
+.admin-empty {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  font-weight: 800;
+}
+
+.admin-orders-list {
+  display: grid;
+  gap: 22px;
+}
+
+.admin-order-card {
+  background: white;
+  padding: 25px;
+  border-radius: 22px;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+}
+
+.admin-order-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.admin-order-top span {
+  background: #ff4d29;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.admin-order-card p {
+  margin: 7px 0;
+}
+
+.admin-order-items {
+  margin-top: 15px;
+  background: #f8fafc;
+  padding: 15px;
+  border-radius: 14px;
+}

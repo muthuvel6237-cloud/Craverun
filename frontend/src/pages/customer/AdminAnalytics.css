@@ -1,0 +1,43 @@
+.admin-analytics-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 35px;
+}
+
+.admin-analytics-page h1 {
+  margin-bottom: 25px;
+}
+
+.analytics-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.analytics-card {
+  background: white;
+  padding: 25px;
+  border-radius: 22px;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+}
+
+.analytics-card span {
+  font-size: 40px;
+}
+
+.analytics-card h2 {
+  font-size: 34px;
+  margin: 12px 0;
+}
+
+.analytics-card p {
+  color: #6b7280;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .analytics-cards {
+    grid-template-columns: 1fr;
+  }
+}

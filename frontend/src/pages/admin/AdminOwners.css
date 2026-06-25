@@ -1,0 +1,31 @@
+.admin-owners-page {
+  padding: 30px;
+}
+
+.admin-owners-page h1 {
+  margin-bottom: 20px;
+}
+
+.owners-table {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: #ff4d29;
+  color: white;
+  padding: 15px;
+  text-align: left;
+}
+
+td {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}

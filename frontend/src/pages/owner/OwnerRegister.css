@@ -1,0 +1,123 @@
+.owner-register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff7ec, #ffe0c5);
+  padding: 35px;
+}
+
+.owner-register-navbar {
+  max-width: 1450px;
+  margin: auto;
+  background: rgba(255,255,255,0.92);
+  border-radius: 35px;
+  padding: 20px 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.owner-register-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.owner-register-brand img {
+  width: 70px;
+  height: 70px;
+}
+
+.owner-register-brand h2 {
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.owner-register-brand span {
+  color: #ff4d00;
+}
+
+.owner-register-links {
+  display: flex;
+  gap: 30px;
+}
+
+.owner-register-links a {
+  text-decoration: none;
+  color: #111827;
+  font-weight: 800;
+}
+
+.owner-register-card {
+  width: 560px;
+  max-width: 95%;
+  margin: 50px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 35px;
+  box-shadow: 0 35px 90px rgba(17,24,39,0.12);
+}
+
+.owner-register-icon {
+  width: 90px;
+  height: 90px;
+  margin: auto;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  background: linear-gradient(135deg,#ff8a00,#ff2d00);
+}
+
+.owner-register-card h1 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.owner-register-card p {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+.owner-register-card label {
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.owner-register-input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  height: 58px;
+  padding: 0 15px;
+  margin-bottom: 18px;
+}
+
+.owner-register-input span {
+  margin-right: 10px;
+}
+
+.owner-register-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+}
+
+.owner-register-btn {
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(135deg,#ff7a00,#ff2d00);
+  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.owner-login-link a {
+  color: #ff4d00;
+  text-decoration: none;
+  font-weight: 900;
+}

@@ -1,0 +1,336 @@
+.owner-dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8fafc;
+  color: #111827;
+}
+
+.owner-sidebar {
+  width: 292px;
+  background: linear-gradient(180deg, #111827, #1f2937);
+  color: white;
+  padding: 28px;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.owner-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 38px;
+}
+
+.owner-logo img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  background: white;
+  border-radius: 16px;
+}
+
+.owner-logo h2 {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.owner-logo span {
+  color: #ff6b35;
+}
+
+.owner-sidebar nav {
+  display: grid;
+  gap: 12px;
+}
+
+.owner-sidebar nav a,
+.owner-sidebar nav button {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 16px;
+  border-radius: 15px;
+  font-weight: 850;
+  border: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.owner-sidebar nav a:hover,
+.owner-sidebar nav button:hover {
+  background: linear-gradient(135deg, #ff6b35, #f59e0b);
+}
+
+.owner-main {
+  flex: 1;
+  padding: 32px;
+}
+
+.owner-topbar,
+.commission-hero,
+.owner-card,
+.owner-section {
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.07);
+}
+
+.owner-topbar {
+  padding: 28px 30px;
+  border-radius: 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: center;
+}
+
+.owner-kicker {
+  display: inline-flex;
+  color: #ea580c;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.owner-topbar h1 {
+  font-size: clamp(30px, 4vw, 44px);
+  margin: 7px 0;
+}
+
+.owner-topbar p,
+.commission-hero p,
+.owner-card p,
+.restaurant-info p,
+.recent-order p,
+.owner-section > p {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.status-pill {
+  color: white;
+  background: #16a34a;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.commission-hero {
+  margin-top: 24px;
+  padding: 30px;
+  border-radius: 28px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: center;
+  background:
+    radial-gradient(circle at top right, rgba(34, 197, 94, 0.16), transparent 22rem),
+    linear-gradient(135deg, #ffffff, #fff7ed);
+}
+
+.commission-hero h2 {
+  font-size: clamp(26px, 3vw, 38px);
+  max-width: 740px;
+  margin: 10px 0;
+}
+
+.commission-meter {
+  width: 178px;
+  height: 178px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background: conic-gradient(#22c55e 0 36deg, #fed7aa 36deg 360deg);
+  box-shadow: inset 0 0 0 16px white, 0 18px 38px rgba(34, 197, 94, 0.22);
+}
+
+.commission-meter strong {
+  display: block;
+  font-size: 42px;
+  color: #16a34a;
+  line-height: 1;
+}
+
+.commission-meter span {
+  color: #475569;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.owner-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.owner-card {
+  padding: 24px;
+  border-radius: 24px;
+}
+
+.owner-card span {
+  color: #ea580c;
+  font-weight: 900;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.owner-card h3 {
+  font-size: 32px;
+  margin: 12px 0 4px;
+}
+
+.accent-card {
+  color: white;
+  background: linear-gradient(135deg, #111827, #334155);
+}
+
+.accent-card span,
+.accent-card p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.owner-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.owner-section {
+  padding: 26px;
+  border-radius: 24px;
+  margin-top: 24px;
+}
+
+.owner-grid .owner-section {
+  margin-top: 0;
+}
+
+.owner-section h2 {
+  margin-bottom: 18px;
+}
+
+.payout-breakdown {
+  display: grid;
+  gap: 12px;
+}
+
+.payout-breakdown p {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px;
+  border-radius: 16px;
+  background: #f8fafc;
+  font-weight: 850;
+}
+
+.payout-breakdown p:last-child {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quick-actions a {
+  color: white;
+  background: #111827;
+  padding: 12px 16px;
+  border-radius: 999px;
+  font-weight: 900;
+}
+
+.quick-actions a:hover {
+  background: linear-gradient(135deg, #ff6b35, #f59e0b);
+}
+
+.recent-order-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.recent-order {
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 16px;
+  background: #f8fafc;
+}
+
+.recent-order h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.recent-order strong {
+  display: block;
+  margin-top: 12px;
+  color: #16a34a;
+  font-size: 20px;
+}
+
+.restaurant-info {
+  background: #fff7ed;
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.restaurant-info h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 1050px) {
+  .owner-dashboard-page {
+    flex-direction: column;
+  }
+
+  .owner-sidebar {
+    width: 100%;
+    min-height: auto;
+    position: static;
+  }
+
+  .owner-sidebar nav {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .owner-cards,
+  .recent-order-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .owner-grid,
+  .commission-hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .owner-main,
+  .owner-sidebar {
+    padding: 18px;
+  }
+
+  .owner-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .owner-sidebar nav,
+  .owner-cards,
+  .recent-order-list {
+    grid-template-columns: 1fr;
+  }
+}

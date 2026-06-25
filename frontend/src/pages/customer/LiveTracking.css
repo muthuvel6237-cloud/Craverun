@@ -1,0 +1,37 @@
+.tracking-page {
+  min-height: 100vh;
+  background: #fff7ec;
+  padding: 30px;
+}
+
+.tracking-card {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+}
+
+.map-placeholder {
+  height: 350px;
+  background: #f3f4f6;
+  border-radius: 20px;
+  display: grid;
+  place-items: center;
+  margin: 25px 0;
+  font-size: 24px;
+}
+
+.tracking-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.tracking-route {
+  display: flex;
+  justify-content: space-between;
+  background: #fff1e8;
+  padding: 20px;
+  border-radius: 18px;
+}

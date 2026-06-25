@@ -1,0 +1,79 @@
+.delivery-login-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delivery-login-card {
+  width: 420px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.delivery-login-card h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.delivery-login-card p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.delivery-login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.delivery-login-card input {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.delivery-login-card button {
+  padding: 14px;
+  border: none;
+  background: #ff4d29;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delivery-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.delivery-logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.delivery-logo h2 {
+  margin-top: 10px;
+}
+
+.delivery-logo span {
+  color: #ff4d29;
+}
+
+.delivery-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.delivery-links a {
+  text-decoration: none;
+  color: #ff4d29;
+  font-weight: 600;
+}

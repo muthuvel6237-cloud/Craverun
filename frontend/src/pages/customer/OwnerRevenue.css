@@ -1,0 +1,150 @@
+.owner-revenue-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  padding: 32px;
+  color: #111827;
+}
+
+.revenue-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.07);
+}
+
+.revenue-header span,
+.revenue-cards span {
+  color: #ea580c;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.revenue-header h1 {
+  font-size: clamp(32px, 4vw, 46px);
+  margin: 8px 0;
+}
+
+.revenue-header p,
+.revenue-cards p,
+.revenue-order p,
+.revenue-table > p {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.revenue-header a {
+  color: white;
+  background: #111827;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.revenue-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.revenue-cards article,
+.revenue-table {
+  background: white;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 46px rgba(15, 23, 42, 0.07);
+}
+
+.revenue-cards article {
+  border-radius: 24px;
+  padding: 26px;
+}
+
+.revenue-cards h2 {
+  font-size: 36px;
+  margin: 10px 0 6px;
+}
+
+.payout-card {
+  color: white;
+  background: linear-gradient(135deg, #111827, #334155) !important;
+}
+
+.payout-card span,
+.payout-card p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.revenue-table {
+  margin-top: 22px;
+  border-radius: 26px;
+  padding: 26px;
+}
+
+.revenue-table h2 {
+  margin-bottom: 16px;
+}
+
+.revenue-orders {
+  display: grid;
+  gap: 12px;
+}
+
+.revenue-order {
+  display: grid;
+  grid-template-columns: 1fr 150px 150px 150px;
+  gap: 12px;
+  align-items: center;
+  padding: 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+}
+
+.revenue-order h3 {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.revenue-order span,
+.revenue-order strong {
+  text-align: right;
+  font-weight: 900;
+}
+
+.revenue-order strong {
+  color: #16a34a;
+}
+
+@media (max-width: 880px) {
+  .revenue-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .revenue-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .revenue-order {
+    grid-template-columns: 1fr;
+  }
+
+  .revenue-order span,
+  .revenue-order strong {
+    text-align: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .owner-revenue-page {
+    padding: 18px;
+  }
+}

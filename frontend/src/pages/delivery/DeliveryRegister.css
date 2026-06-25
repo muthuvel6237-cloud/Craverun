@@ -1,0 +1,74 @@
+.delivery-register-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff7ec, #ffe5d9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.delivery-register-card {
+  width: 100%;
+  max-width: 500px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.delivery-register-card h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.delivery-register-card p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.delivery-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.delivery-register-form input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 15px;
+  outline: none;
+}
+
+.delivery-register-form input:focus {
+  border-color: #ff4d29;
+}
+
+.delivery-register-btn {
+  background: #ff4d29;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.delivery-register-btn:hover {
+  background: #e63e1f;
+}
+
+.delivery-register-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.delivery-register-footer a {
+  color: #ff4d29;
+  text-decoration: none;
+  font-weight: 600;
+}

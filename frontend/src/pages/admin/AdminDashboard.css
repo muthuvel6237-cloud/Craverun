@@ -1,0 +1,105 @@
+.admin-dashboard-page {
+  min-height: 100vh;
+  display: flex;
+  background: #f8fafc;
+}
+
+.admin-sidebar {
+  width: 270px;
+  background: #111827;
+  color: white;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-sidebar h2 {
+  font-size: 30px;
+  margin-bottom: 25px;
+}
+
+.admin-sidebar h2 span {
+  color: #ff4d29;
+}
+
+.admin-sidebar a,
+.admin-sidebar button {
+  color: white;
+  text-decoration: none;
+  background: rgba(255,255,255,0.08);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-sidebar a:hover,
+.admin-sidebar button:hover {
+  background: #ff4d29;
+}
+
+.admin-main {
+  flex: 1;
+  padding: 35px;
+}
+
+.admin-topbar {
+  background: white;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.08);
+  margin-bottom: 25px;
+}
+
+.admin-topbar h1 {
+  font-size: 36px;
+}
+
+.admin-topbar p {
+  color: #6b7280;
+  font-weight: 700;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.admin-card {
+  background: white;
+  padding: 28px;
+  border-radius: 24px;
+  box-shadow: 0 14px 35px rgba(17, 24, 39, 0.08);
+}
+
+.admin-card span {
+  font-size: 36px;
+}
+
+.admin-card h3 {
+  font-size: 38px;
+  margin-top: 12px;
+}
+
+.admin-card p {
+  color: #6b7280;
+  font-weight: 800;
+}
+
+@media (max-width: 900px) {
+  .admin-dashboard-page {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+  }
+
+  .admin-cards {
+    grid-template-columns: 1fr;
+  }
+}

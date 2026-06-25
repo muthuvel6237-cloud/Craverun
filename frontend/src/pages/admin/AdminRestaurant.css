@@ -1,0 +1,29 @@
+.admin-restaurants-page {
+  padding: 30px;
+}
+
+.admin-restaurants-page h1 {
+  margin-bottom: 20px;
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.restaurant-card h2 {
+  color: #ff4d29;
+  margin-bottom: 15px;
+}
+
+.restaurant-card p {
+  margin: 8px 0;
+}
