@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-require("dotenv").config();
 const path = require("path");
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const connectDB = require("./config/db");
 
 const app = express();
@@ -12,6 +12,10 @@ const allowedOrigins = (process.env.CLIENT_URLS || "http://127.0.0.1:5173,http:/
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
+
+if (process.env.NODE_ENV !== "production") {
+  allowedOrigins.push("http://127.0.0.1:5174", "http://localhost:5174");
+}
 
 app.use(
   cors({
@@ -50,9 +54,20 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+const frontendBuild = path.join(__dirname, "public");
+app.use(express.static(frontendBuild));
+app.use((req, res, next) => {
+  if (req.method === "GET" && !req.path.startsWith("/api") && !req.path.startsWith("/uploads")) {
+    return res.sendFile(path.join(frontendBuild, "index.html"));
+  }
+  return next();
+});
+
 const PORT = process.env.PORT || 5000;
 const HOST = process.env.HOST || "0.0.0.0";
 
 app.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}`);
 });
+
+module.exports = app;

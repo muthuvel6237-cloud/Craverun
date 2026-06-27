@@ -11,6 +11,8 @@ function Checkout() {
 
   const [address, setAddress] = useState("");
   const [paymentMethod, setPaymentMethod] = useState("COD");
+  const RAZORPAY_ME_URL = "https://razorpay.me/@sudalaivelmuthuvel";
+  const [razorpayLinkOpened, setRazorpayLinkOpened] = useState(false);
   const [loadingLocation, setLoadingLocation] = useState(false);
   const [coupon, setCoupon] = useState(savedCoupon);
   const [placingOrder, setPlacingOrder] = useState(false);
@@ -73,8 +75,23 @@ function Checkout() {
     setPaymentDetails((current) => ({ ...current, [name]: value }));
   };
 
+  const openRazorpayLink = () => {
+    const amountInPaise = payable * 100;
+    const url = `${RAZORPAY_ME_URL}?amount=${amountInPaise}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+    setRazorpayLinkOpened(true);
+  };
+
   const validatePayment = () => {
     if (paymentMethod === "COD") return true;
+
+    if (paymentMethod === "Razorpay") {
+      if (!razorpayLinkOpened) {
+        alert("Please click \"Open Razorpay\" to complete the payment first, then place order.");
+        return false;
+      }
+      return true;
+    }
 
     if (paymentMethod === "UPI") {
       const validUpi = /^[\w.-]+@[\w.-]+$/.test(paymentDetails.upiId.trim());
@@ -159,7 +176,12 @@ function Checkout() {
         quantity: item.quantity,
       }));
 
-      const paymentReference = paymentMethod === "COD" ? "" : await payOnline();
+      const paymentReference =
+        paymentMethod === "COD"
+          ? ""
+          : paymentMethod === "Razorpay"
+          ? `razorpay-me-${Date.now()}`
+          : await payOnline();
 
       await API.post(
         "/orders",
@@ -167,7 +189,7 @@ function Checkout() {
           items,
           deliveryAddress: address,
           paymentMethod,
-          paymentStatus: paymentMethod === "COD" ? "Pending" : "Paid",
+          paymentStatus: (paymentMethod === "COD") ? "Pending" : "Paid",
           paymentReference,
           couponCode: coupon?.code || "",
           discountAmount: discount,
@@ -215,14 +237,14 @@ function Checkout() {
           <div className="checkout-section">
             <label>Payment method</label>
             <div className="payment-methods">
-              {["COD", "UPI", "Card"].map((method) => (
+              {["COD", "Razorpay", "UPI", "Card"].map((method) => (
                 <button
                   key={method}
                   type="button"
                   className={paymentMethod === method ? "active" : ""}
-                  onClick={() => setPaymentMethod(method)}
+                  onClick={() => { setPaymentMethod(method); setRazorpayLinkOpened(false); }}
                 >
-                  {method === "COD" ? "Cash" : method}
+                  {method === "COD" ? "Cash on Delivery" : method}
                 </button>
               ))}
             </div>
@@ -247,10 +269,30 @@ function Checkout() {
               </div>
             )}
 
+            {paymentMethod === "Razorpay" && (
+              <div className="razorpay-link-block">
+                <p className="payment-note razorpay-note">
+                  Pay securely via Razorpay. Click below to open the payment page, complete payment, then place your order.
+                </p>
+                <button
+                  type="button"
+                  className={`razorpay-open-btn ${razorpayLinkOpened ? "paid" : ""}`}
+                  onClick={openRazorpayLink}
+                >
+                  {razorpayLinkOpened ? "✓ Payment page opened — Place order when done" : `Open Razorpay — Pay ₹${payable}`}
+                </button>
+                {razorpayLinkOpened && (
+                  <p className="razorpay-confirm-note">✅ After completing payment on the Razorpay page, click "Place Order" below.</p>
+                )}
+              </div>
+            )}
+
             <p className="payment-note">
               {paymentMethod === "COD"
                 ? "Pay the delivery partner when the order arrives."
-                : "Payment will be marked as paid for this app flow. Razorpay can be connected with live keys later."}
+                : paymentMethod === "Razorpay"
+                ? ""
+                : "Secure encrypted payment via Razorpay gateway."}
             </p>
           </div>
 

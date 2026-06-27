@@ -11,6 +11,7 @@ function money(value) {
 
 function OwnerDashboard() {
   const token = localStorage.getItem("ownerToken");
+  const owner = JSON.parse(localStorage.getItem("ownerUser") || "null");
   const localOrders = useMemo(() => JSON.parse(localStorage.getItem("orders")) || [], []);
   const localFoods = useMemo(() => JSON.parse(localStorage.getItem("ownerFoods")) || [], []);
 
@@ -86,6 +87,11 @@ function OwnerDashboard() {
           <h2>Crave<span>Run</span></h2>
         </div>
 
+        <div className="owner-account">
+          <strong>{owner?.name || "Restaurant owner"}</strong>
+          <span>{owner?.phone ? `+91 ${owner.phone}` : "Partner account"}</span>
+        </div>
+
         <nav>
           <Link to="/owner/dashboard">Dashboard</Link>
           <Link to="/owner/restaurant">Restaurant profile</Link>
@@ -100,7 +106,7 @@ function OwnerDashboard() {
         <div className="owner-topbar">
           <div>
             <span className="owner-kicker">Restaurant partner console</span>
-            <h1>Owner Dashboard</h1>
+            <h1>Good day, {owner?.name?.split(" ")[0] || "Partner"}</h1>
             <p>Manage restaurant setup, menu, orders, payments, commission, and payouts.</p>
           </div>
 

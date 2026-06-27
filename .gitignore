@@ -8,3 +8,6 @@ backend/.env
 frontend/.env
 backend/uploads
 _git
+
+# Local Netlify folder
+.netlify

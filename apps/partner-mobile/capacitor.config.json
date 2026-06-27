@@ -1,0 +1,9 @@
+{
+  "appId": "com.craverun.partner",
+  "appName": "CraveRun Partner",
+  "webDir": "www",
+  "server": {
+    "url": "https://craverun-production.up.railway.app/owner/dashboard",
+    "cleartext": false
+  }
+}

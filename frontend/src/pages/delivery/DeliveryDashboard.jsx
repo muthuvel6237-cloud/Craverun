@@ -9,7 +9,9 @@ function money(value) {
 
 function DeliveryDashboard() {
   const token = localStorage.getItem("deliveryToken");
+  const deliveryUser = JSON.parse(localStorage.getItem("deliveryUser") || "null");
   const [orders, setOrders] = useState([]);
+  const [isOnline, setIsOnline] = useState(true);
 
   useEffect(() => {
     async function loadOrders() {
@@ -38,16 +40,33 @@ function DeliveryDashboard() {
     return { delivered, active, cashToCollect };
   }, [orders]);
 
+  const logout = () => {
+    localStorage.removeItem("deliveryToken");
+    localStorage.removeItem("deliveryUser");
+    window.location.href = "/delivery/login";
+  };
+
   return (
     <div className="delivery-app-page">
       <header className="delivery-app-header">
         <div>
           <span>CraveRun Delivery Partner</span>
-          <h1>Delivery Jobs</h1>
+          <h1>Hello, {deliveryUser?.name?.split(" ")[0] || "Partner"}</h1>
           <p>Assigned orders, pickup details, delivery address and cash collection.</p>
         </div>
-        <Link to="/delivery-partner">Delivery website</Link>
+        <div className="delivery-header-actions">
+          <button className={`availability-toggle ${isOnline ? "is-online" : ""}`} type="button" onClick={() => setIsOnline((value) => !value)}>
+            <i /> {isOnline ? "Online" : "Offline"}
+          </button>
+          <Link to="/delivery-partner">Website</Link>
+          <button className="delivery-logout" type="button" onClick={logout}>Logout</button>
+        </div>
       </header>
+
+      <div className="delivery-shift-strip">
+        <div><strong>{isOnline ? "You are accepting jobs" : "You are currently offline"}</strong><span>{isOnline ? "New nearby deliveries will appear here." : "Go online when you are ready to deliver."}</span></div>
+        <span>{deliveryUser?.phone ? `+91 ${deliveryUser.phone}` : "Verified partner"}</span>
+      </div>
 
       <section className="delivery-cards">
         <article>

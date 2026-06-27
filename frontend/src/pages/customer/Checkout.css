@@ -249,3 +249,66 @@
     grid-column: auto;
   }
 }
+
+/* ── Razorpay Direct Link ── */
+.razorpay-link-block {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.razorpay-note {
+  color: #64748b;
+  font-size: 13px;
+  margin: 0;
+}
+
+.razorpay-open-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: linear-gradient(135deg, #072654 0%, #1a6fff 100%);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(26,111,255,0.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.razorpay-open-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.razorpay-open-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.razorpay-open-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(26,111,255,0.5);
+}
+
+.razorpay-open-btn.paid {
+  background: linear-gradient(135deg, #065f46 0%, #10b981 100%);
+  box-shadow: 0 4px 18px rgba(16,185,129,0.35);
+}
+
+.razorpay-confirm-note {
+  font-size: 13px;
+  color: #059669;
+  font-weight: 600;
+  margin: 0;
+}

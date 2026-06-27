@@ -1,0 +1,16 @@
+.git
+_git
+.netlify
+.npm-cache
+node_modules
+frontend
+apps
+bhavan-agencies
+_incoming_bhavan
+_incoming_source
+_incomplete_bhavan_node_modules
+backend/node_modules
+backend/.env
+backend/.env.*
+backend/uploads
+*.log

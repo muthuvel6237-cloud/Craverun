@@ -27,6 +27,8 @@ const restaurants = [
 function CustomerHome() {
   const navigate = useNavigate();
   const location = useLocation();
+  const customer = JSON.parse(localStorage.getItem("user") || "null");
+  const cartCount = (JSON.parse(localStorage.getItem("cart") || "[]")).length;
   const [deliveryLocation, setDeliveryLocation] = useState("Tap to set location");
   const [loadingLocation, setLoadingLocation] = useState(false);
   const [likedItems, setLikedItems] = useState(new Set());
@@ -75,7 +77,7 @@ function CustomerHome() {
       <header className="customer-app-header">
         <div className="header-row">
           <div>
-            <span className="app-eyebrow">CraveRun</span>
+            <span className="app-eyebrow">Hello, {customer?.name?.split(" ")[0] || "Food lover"}</span>
             <h1>What are you craving?</h1>
           </div>
           <div className="header-buttons">
@@ -83,7 +85,9 @@ function CustomerHome() {
               <span className="bell-shape" />
               <i />
             </Link>
-            <Link to="/customer/profile" className="profile-button" aria-label="Profile">M</Link>
+            <Link to="/customer/profile" className="profile-button" aria-label="Profile">
+              {(customer?.name?.[0] || "C").toUpperCase()}
+            </Link>
           </div>
         </div>
 
@@ -120,8 +124,8 @@ function CustomerHome() {
 
         <section className="quick-stats">
           <article>
-            <strong>10%</strong>
-            <span>owner plan</span>
+            <strong>No markups</strong>
+            <span>clear pricing</span>
           </article>
           <article>
             <strong>25 min</strong>
@@ -221,7 +225,7 @@ function CustomerHome() {
         </Link>
         <Link to="/customer/cart" className={isActive("/customer/cart") ? "active" : ""}>
           <span>Cart</span>
-          <b>2</b>
+          {cartCount > 0 && <b>{cartCount}</b>}
         </Link>
         <Link to="/customer/orders" className={isActive("/customer/orders") ? "active" : ""}>
           <span>Orders</span>

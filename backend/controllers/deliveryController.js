@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { normalizePhone, verifyOtp } = require("../services/otpService");
 
 const Delivery = require("../models/Delivery");
 const Order = require("../models/Order");
@@ -12,21 +12,23 @@ const generateToken = (id) => {
 
 const registerDelivery = async (req, res) => {
   try {
-    const { name, email, phone, password } = req.body;
-
-    const existingDelivery = await Delivery.findOne({ email });
+    const { name, email, otp } = req.body;
+    const phone = normalizePhone(req.body.phone);
+    if (!name?.trim() || !phone) return res.status(400).json({ message: "Name and valid mobile number are required" });
+    const existingDelivery = await Delivery.findOne({ phone });
 
     if (existingDelivery) {
       return res.status(400).json({ message: "Delivery partner already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    if (!(await verifyOtp({ phone, accountType: "delivery", purpose: "register", code: otp }))) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
 
     const delivery = await Delivery.create({
-      name,
-      email,
+      name: name.trim(),
+      email: email?.trim().toLowerCase() || undefined,
       phone,
-      password: hashedPassword,
     });
 
     res.status(201).json({
@@ -47,24 +49,18 @@ const registerDelivery = async (req, res) => {
 
 const loginDelivery = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    const delivery = await Delivery.findOne({ email });
+    const phone = normalizePhone(req.body.phone);
+    const delivery = phone ? await Delivery.findOne({ phone }) : null;
 
     if (!delivery) {
       return res.status(400).json({
-        message: "Invalid credentials",
+        message: "Account not found",
       });
     }
 
-    const match = await bcrypt.compare(
-      password,
-      delivery.password
-    );
-
-    if (!match) {
+    if (!(await verifyOtp({ phone, accountType: "delivery", purpose: "login", code: req.body.otp }))) {
       return res.status(400).json({
-        message: "Invalid credentials",
+        message: "Invalid or expired OTP",
       });
     }
 

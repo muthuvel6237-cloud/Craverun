@@ -1,5 +1,5 @@
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { normalizePhone, verifyOtp } = require("../services/otpService");
 
 const Owner = require("../models/Owner");
 const Restaurant = require("../models/Restaurant");
@@ -12,21 +12,23 @@ const generateToken = (id) => {
 
 const registerOwner = async (req, res) => {
   try {
-    const { name, email, phone, password } = req.body;
-
-    const existingOwner = await Owner.findOne({ email });
+    const { name, email, otp } = req.body;
+    const phone = normalizePhone(req.body.phone);
+    if (!name?.trim() || !phone) return res.status(400).json({ message: "Name and valid mobile number are required" });
+    const existingOwner = await Owner.findOne({ phone });
 
     if (existingOwner) {
       return res.status(400).json({ message: "Owner already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    if (!(await verifyOtp({ phone, accountType: "owner", purpose: "register", code: otp }))) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
 
     const owner = await Owner.create({
-      name,
-      email,
+      name: name.trim(),
+      email: email?.trim().toLowerCase() || undefined,
       phone,
-      password: hashedPassword,
     });
 
     res.status(201).json({
@@ -47,18 +49,15 @@ const registerOwner = async (req, res) => {
 
 const loginOwner = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    const owner = await Owner.findOne({ email });
+    const phone = normalizePhone(req.body.phone);
+    const owner = phone ? await Owner.findOne({ phone }) : null;
 
     if (!owner) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Account not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, owner.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid email or password" });
+    if (!(await verifyOtp({ phone, accountType: "owner", purpose: "login", code: req.body.otp }))) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
     }
 
     res.json({

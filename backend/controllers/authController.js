@@ -1,6 +1,6 @@
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+const { normalizePhone, verifyOtp } = require("../services/otpService");
 
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
@@ -8,21 +8,23 @@ const generateToken = (id) => {
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, phone, password } = req.body;
-
-    const existingUser = await User.findOne({ email });
+    const { name, email, otp } = req.body;
+    const phone = normalizePhone(req.body.phone);
+    if (!name?.trim() || !phone) return res.status(400).json({ message: "Name and valid mobile number are required" });
+    const existingUser = await User.findOne({ phone });
 
     if (existingUser) {
       return res.status(400).json({ message: "Customer already exists" });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    if (!(await verifyOtp({ phone, accountType: "customer", purpose: "register", code: otp }))) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
+    }
 
     const user = await User.create({
-      name,
-      email,
+      name: name.trim(),
+      email: email?.trim().toLowerCase() || undefined,
       phone,
-      password: hashedPassword,
     });
 
     res.status(201).json({
@@ -43,18 +45,15 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
-
-    const user = await User.findOne({ email });
+    const phone = normalizePhone(req.body.phone);
+    const user = phone ? await User.findOne({ phone }) : null;
 
     if (!user) {
-      return res.status(400).json({ message: "Invalid email or password" });
+      return res.status(400).json({ message: "Account not found" });
     }
 
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid email or password" });
+    if (!(await verifyOtp({ phone, accountType: "customer", purpose: "login", code: req.body.otp }))) {
+      return res.status(400).json({ message: "Invalid or expired OTP" });
     }
 
     res.json({

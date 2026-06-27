@@ -1,0 +1,9 @@
+{
+  "appId": "com.craverun.customer",
+  "appName": "CraveRun Food",
+  "webDir": "www",
+  "server": {
+    "url": "https://craverun-production.up.railway.app/customer/home",
+    "cleartext": false
+  }
+}

@@ -22,6 +22,21 @@
   margin-bottom: 38px;
 }
 
+.owner-account {
+  display: grid;
+  gap: 3px;
+  padding: 14px 16px;
+  margin: -18px 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+}
+
+.owner-account span {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
 .owner-logo img {
   width: 54px;
   height: 54px;
@@ -302,6 +317,14 @@
     position: static;
   }
 
+  .owner-logo {
+    margin-bottom: 20px;
+  }
+
+  .owner-account {
+    margin: 0 0 18px;
+  }
+
   .owner-sidebar nav {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -332,5 +355,23 @@
   .owner-cards,
   .recent-order-list {
     grid-template-columns: 1fr;
+  }
+
+  .owner-sidebar nav {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+
+  .owner-sidebar nav a,
+  .owner-sidebar nav button {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    border-radius: 7px;
+  }
+
+  .commission-meter {
+    width: 148px;
+    height: 148px;
   }
 }

@@ -1,0 +1,9 @@
+{
+  "appId": "com.craverun.delivery",
+  "appName": "CraveRun Delivery",
+  "webDir": "www",
+  "server": {
+    "url": "https://craverun-production.up.railway.app/delivery/dashboard",
+    "cleartext": false
+  }
+}
